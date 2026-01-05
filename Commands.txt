@@ -1,0 +1,5 @@
+Migrations command : 
+ dotnet ef migrations add initialDb --project BaseConn.Infrastructure --startup-project BaseConn.Api
+ dotnet ef database update -p BaseConn.Infrastructure -s BaseConn.Api 
+ 
+ 

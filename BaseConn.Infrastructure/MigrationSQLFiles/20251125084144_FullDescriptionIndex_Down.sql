@@ -1,0 +1,3 @@
+
+DROP FULLTEXT INDEX on dbo.problems;
+DROP FULLTEXT CATALOG FTCProblem;

@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "5000:8080"
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnectionString=Data Source=db;Initial Catalog=BaseConn;User ID=sa;Password=StrongPassword123;TrustServerCertificate=true;
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: baseconn_sqlserver
+    environment:
+      MSSQL_SA_PASSWORD: "StrongPassword123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+volumes:
+  sql_data:
