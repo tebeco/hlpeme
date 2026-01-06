@@ -4,10 +4,7 @@ WORKDIR /app
 
 # Copy project files only
 COPY *.sln ./
-COPY /BaseConn.Api/*.csproj ./BaseConn.Api/
-COPY /BaseConn.Application/*.csproj ./BaseConn.Application/
-COPY /BaseConn.Infrastructure/*.csproj ./BaseConn.Infrastructure/
-COPY /BaseConn.Domain/*.csproj ./BaseConn.Domain/
+COPY /BaseConn.Api/BaseConn.Api.csproj ./BaseConn.Api/BaseConn.Api.csproj
 
 # Restore with only project files (cached layer)
 RUN dotnet restore
